@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button taskBtn;
     ListView phasesListView;
-    String[] phases = {"🤔 Planning", "😓 Design", "😷 Development", "🤨 Testing", "😁 Deployment", "🥲 Maintenance"};
+    String[] phases = {"🤔 Planning", "😓 Design", "😷 Development", "🤨 Testing", "😁 Deployment", "😱 Maintenance"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
