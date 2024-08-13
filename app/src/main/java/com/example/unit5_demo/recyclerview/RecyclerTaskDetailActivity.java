@@ -33,7 +33,7 @@ public class RecyclerTaskDetailActivity extends AppCompatActivity {
         taskDetailsRecyclerView = findViewById(R.id.taskDetailsRecyclerView);
 
         // Retrieve task details from the intent
-        taskDetailList = (List<TaskDetail>) getIntent().getSerializableExtra("taskDetails");
+
 
         //Initiate Recycler View using LinearLayoutManager and Custom Adapter
 
