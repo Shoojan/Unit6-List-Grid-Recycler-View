@@ -36,7 +36,10 @@ public class RecyclerTaskDetailActivity extends AppCompatActivity {
         taskDetailList = (List<TaskDetail>) getIntent().getSerializableExtra("taskDetails");
 
         //Initiate Recycler View using LinearLayoutManager and Custom Adapter
+        taskDetailsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        TaskDetailAdapter adapter = new TaskDetailAdapter(taskDetailList);
+        taskDetailsRecyclerView.setAdapter(adapter);
 
     }
 }
