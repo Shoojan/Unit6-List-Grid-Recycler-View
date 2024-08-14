@@ -39,6 +39,24 @@ public class MainActivity extends AppCompatActivity {
         phasesListView = findViewById(R.id.phasesListView);
 
         //Initiate List View using simple Array Adapter
+        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_list_item_1,
+                phases
+        );
+        phasesListView.setAdapter(listViewAdapter);
+
+        phasesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(
+                                getApplicationContext(),
+                                "Current Phase: " + phases[position],
+                                Toast.LENGTH_SHORT
+                        )
+                        .show();
+            }
+        });
 
 
         taskBtn.setOnClickListener(new View.OnClickListener() {

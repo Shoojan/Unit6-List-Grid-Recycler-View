@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,10 +34,15 @@ public class RecyclerTaskDetailActivity extends AppCompatActivity {
         taskDetailsRecyclerView = findViewById(R.id.taskDetailsRecyclerView);
 
         // Retrieve task details from the intent
-
+        List<TaskDetail> taskDetails = (List<TaskDetail>) getIntent().getSerializableExtra("TASK_DETAILS");
 
         //Initiate Recycler View using LinearLayoutManager and Custom Adapter
+        taskDetailsRecyclerView.setLayoutManager(new GridLayoutManager(
+                this,
+                2));
 
+        RecyclerTaskDetailAdapter adapter = new RecyclerTaskDetailAdapter(taskDetails);
+        taskDetailsRecyclerView.setAdapter(adapter);
 
     }
 }
