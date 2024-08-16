@@ -46,6 +46,30 @@ public class GridTaskActivity extends AppCompatActivity {
         tasksGridView = findViewById(R.id.tasksGridView);
 
         //Initiate Grid View using simple Array Adapter
+        ArrayAdapter<String> gridViewAdapter = new ArrayAdapter<>(
+                getApplicationContext(),
+                android.R.layout.simple_list_item_1,
+                tasks
+        );
+        tasksGridView.setAdapter(gridViewAdapter);
+
+        tasksGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedTask = tasks[position];
+                List<TaskDetail> selectedTaskDetails = taskDetailsMap.get(selectedTask);
+
+                Intent intent = new Intent(
+                        GridTaskActivity.this,
+                        RecyclerTaskDetailActivity.class
+                );
+                intent.putExtra(
+                        "TASK_DETAILS",
+                        (Serializable) selectedTaskDetails
+                );
+                startActivity(intent);
+            }
+        });
 
     }
 
